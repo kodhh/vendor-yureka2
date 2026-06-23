@@ -241,6 +241,257 @@ prebuilt_etc_xml {
 	soc_specific: true,
 }
 
+cc_prebuilt_library_shared {
+	name: "libqmi_cci",
+	owner: "YU",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/libqmi_cci.so"],
+			shared_libs: [
+				"libcutils",
+				"libutils",
+				"libqmi_encdec",
+				"liblog",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libqmi_cci.so"],
+			shared_libs: [
+				"libcutils",
+				"libutils",
+				"libqmi_encdec",
+				"liblog",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libqmi_common_so",
+	owner: "YU",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/libqmi_common_so.so"],
+			shared_libs: [
+				"libcutils",
+				"libutils",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libqmi_common_so.so"],
+			shared_libs: [
+				"libcutils",
+				"libutils",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "deviceInfoServiceModule",
+	owner: "YU",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/deviceInfoServiceModule.so"],
+			shared_libs: [
+				"vendor.qti.hardware.radio.internal.deviceinfo@1.0",
+				"libqcrilFramework",
+				"libril-qc-hal-qmi",
+				"libril-qc-logger",
+				"libutils",
+				"librilqmiservices",
+				"libqmi_cci",
+				"libhidlbase",
+				"liblog",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libpdnotifier",
+	owner: "YU",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libpdnotifier.so"],
+			shared_libs: [
+				"libcutils",
+				"libutils",
+				"liblog",
+				"libqmi_cci",
+				"libqmi_common_so",
+				"libqmi_encdec",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "vendor.qti.hardware.radio.qtiradio@2.5",
+	owner: "YU",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.5.so"],
+			shared_libs: [
+				"android.hardware.radio@1.0",
+				"android.hardware.radio@1.1",
+				"vendor.qti.hardware.radio.qtiradio@1.0",
+				"vendor.qti.hardware.radio.qtiradio@2.0",
+				"vendor.qti.hardware.radio.qtiradio@2.1",
+				"vendor.qti.hardware.radio.qtiradio@2.2",
+				"vendor.qti.hardware.radio.qtiradio@2.3",
+				"vendor.qti.hardware.radio.qtiradio@2.4",
+				"libhidlbase",
+				"liblog",
+				"libutils",
+				"libcutils",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "vendor.qti.hardware.radio.qtiradio@2.6",
+	owner: "YU",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.6.so"],
+			shared_libs: [
+				"android.hardware.radio@1.0",
+				"vendor.qti.hardware.radio.qtiradio@1.0",
+				"vendor.qti.hardware.radio.qtiradio@2.0",
+				"vendor.qti.hardware.radio.qtiradio@2.1",
+				"vendor.qti.hardware.radio.qtiradio@2.2",
+				"vendor.qti.hardware.radio.qtiradio@2.3",
+				"vendor.qti.hardware.radio.qtiradio@2.4",
+				"vendor.qti.hardware.radio.qtiradio@2.5",
+				"libhidlbase",
+				"liblog",
+				"libutils",
+				"libcutils",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+dex_import {
+	name: "tcmclient",
+	owner: "YU",
+	jars: ["proprietary/system/framework/tcmclient.jar"],
+}
+
+cc_prebuilt_library_shared {
+	name: "libmdmdetect",
+	owner: "YU",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/libmdmdetect.so"],
+			shared_libs: [
+				"libcutils",
+				"libutils",
+				"liblog",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libmdmdetect.so"],
+			shared_libs: [
+				"libcutils",
+				"libutils",
+				"liblog",
+				"libc++",
+				"libc",
+				"libm",
+				"libdl",
+			],
+		},
+	},
+	compile_multilib: "both",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
 cc_prebuilt_binary {
 	name: "chargeonlymode",
 	owner: "YU",
